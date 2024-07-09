@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Leilão Seguro API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erfelipe/ls-backend.git"
+  },
+  "keywords": [
+    "API"
+  ],
+  "author": "Leilão Seguro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erfelipe/ls-backend/issues"
+  },
+  "homepage": "https://github.com/erfelipe/ls-backend#readme"
+}
