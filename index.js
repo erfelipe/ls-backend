@@ -42,10 +42,10 @@ app.get("/editais", (req, res) => {
     client.query("SELECT * FROM editais where data > now() order by estado, data ", function (err, result) {
       if (err) {
         res.status(404).send("Erro: " + err);
-        return console.error("Erro ao executar a qry de SELECT", err);
+      } else {
+        res.status(200).send(result.rows);
+        result.rows.forEach((item) => console.log(item));
       }
-      res.status(200).send(result.rows);
-      result.rows.forEach( (item) => console.log(item));
     });
   } catch (error) {
     res.status(404).send("Erro: " + error);
@@ -53,6 +53,22 @@ app.get("/editais", (req, res) => {
   }
 });
 
+app.get("/parcerias", (req, res) => {
+  try {
+    client.query("SELECT * FROM parcerias where datafim > now() ",
+      (err, result) => {
+        if (err) {
+          res.status(404).send("Erro: " + err);
+        } else {
+          res.status(200).send(result.rows);
+          result.rows.forEach((item) => console.log(item));
+        }
+      }
+    )
+  } catch (error) {
+    res.status(404).send("Erro: " + error);
+  }
+});
 
 app.listen(config.port, () =>
   console.log("Servidor funcionando na porta " + config.port)
