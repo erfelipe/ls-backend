@@ -70,6 +70,23 @@ app.get("/parcerias", (req, res) => {
   }
 });
 
+app.get("/leiloeiros", (req, res) => {
+  try {
+    client.query("SELECT * FROM leiloeiros where datafim > now() ",
+      (err, result) => {
+        if (err) {
+          res.status(404).send("Erro: " + err);
+        } else {
+          res.status(200).send(result.rows);
+          result.rows.forEach((item) => console.log(item));
+        }
+      }
+    )
+  } catch (error) {
+    res.status(404).send("Erro: " + error);
+  }
+});
+
 app.listen(config.port, () =>
   console.log("Servidor funcionando na porta " + config.port)
 );
