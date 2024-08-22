@@ -11,14 +11,16 @@ app.use(bodyparser.json());
 
 var conString = config.urlConnection;
 
-// var client = new Client(conString);
-const client = new Client({
-  user: 'postgres',
-  password: '',
-  host: 'localhost',
-  port: 8892,
-  database: 'postgres',
-})
+var client = new Client(conString);
+
+// para trabalhar com DOCKER
+// const client = new Client({
+//   user: 'postgres',
+//   password: '',
+//   host: 'localhost',
+//   port: 8892,
+//   database: 'postgres',
+// })
 
 client.connect((err) => {
   if (err) {
@@ -33,7 +35,6 @@ client.connect((err) => {
 });
 
 app.get("/", (req, res) => {
-  console.log("Ok – Servidor disponível.");
   res.status(200).send("Ok – Servidor disponível.");
 });
 
@@ -49,7 +50,6 @@ app.get("/editais", (req, res) => {
     });
   } catch (error) {
     res.status(404).send("Erro: " + error);
-    console.log(error);
   }
 });
 
