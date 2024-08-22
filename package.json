@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/erfelipe/ls-backend.git"
+    "url": "git+https://github.com/leilaoseguro/ls-backend.git"
   },
   "keywords": [
     "API"
@@ -17,9 +17,9 @@
   "author": "Leilão Seguro",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/erfelipe/ls-backend/issues"
+    "url": "https://github.com/leilaoseguro/ls-backend/issues"
   },
-  "homepage": "https://github.com/erfelipe/ls-backend#readme",
+  "homepage": "https://www.leilaoseguro.app",
   "dependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
