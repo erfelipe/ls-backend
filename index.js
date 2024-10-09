@@ -11,16 +11,16 @@ app.use(bodyparser.json());
 
 var conString = config.urlConnection;
 
-var client = new Client(conString);
+// var client = new Client(conString);
 
 // para trabalhar com DOCKER
-// const client = new Client({
-//   user: 'postgres',
-//   password: '',
-//   host: 'localhost',
-//   port: 8892,
-//   database: 'postgres',
-// })
+const client = new Client({
+  user: 'postgres',
+  password: '',
+  host: 'localhost',
+  port: 8892,
+  database: 'postgres',
+})
 
 client.connect((err) => {
   if (err) {
@@ -45,7 +45,7 @@ app.get("/editais", (req, res) => {
         res.status(404).send("Erro: " + err);
       } else {
         res.status(200).send(result.rows);
-        result.rows.forEach((item) => console.log(item));
+        // result.rows.forEach((item) => console.log(item));
       }
     });
   } catch (error) {
@@ -61,7 +61,7 @@ app.get("/parcerias", (req, res) => {
           res.status(404).send("Erro: " + err);
         } else {
           res.status(200).send(result.rows);
-          result.rows.forEach((item) => console.log(item));
+          // result.rows.forEach((item) => console.log(item));
         }
       }
     )
@@ -78,7 +78,7 @@ app.get("/leiloeiros", (req, res) => {
           res.status(404).send("Erro: " + err);
         } else {
           res.status(200).send(result.rows);
-          result.rows.forEach((item) => console.log(item));
+          // result.rows.forEach((item) => console.log(item));
         }
       }
     )
